@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enrolment form</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 34rem; margin: 3rem auto; padding: 0 1rem; }
+    .field { margin-bottom: 1rem; }
+    label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+    input, select { font: inherit; padding: 0.4rem 0.5rem; width: 100%; }
+    .error { color: #b3261e; font-size: 0.875rem; min-height: 1.2em; margin: 0.25rem 0 0; }
+    input[aria-invalid="true"], select[aria-invalid="true"] { border: 2px solid #b3261e; }
+    button { font: inherit; padding: 0.5rem 1.25rem; border-radius: 8px; border: 0; background: #1f5fdb; color: #fff; cursor: pointer; }
+    #summary { margin-top: 1.5rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>Enrolment</h1>
+
+  <form id="enrol" novalidate>
+    <div class="field">
+      <label for="name">Full name</label>
+      <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error">
+      <p class="error" id="name-error"></p>
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+      <p class="error" id="email-error"></p>
+    </div>
+
+    <div class="field">
+      <label for="course">Course</label>
+      <select id="course" name="course" required aria-describedby="course-error">
+        <option value="">Choose one…</option>
+        <option value="WEB101">WEB101 — Web Fundamentals</option>
+        <option value="CS201">CS201 — Data Structures</option>
+        <option value="DB210">DB210 — Databases</option>
+      </select>
+      <p class="error" id="course-error"></p>
+    </div>
+
+    <button type="submit">Enrol</button>
+  </form>
+
+  <p id="summary" role="status" aria-live="polite"></p>
+
+  <script>
+    const form = document.getElementById('enrol');
+
+    const rules = {
+      name: (v) => v.trim().length >= 2 || 'Enter at least two characters.',
+      email: (v) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v) || 'Enter a valid email address.',
+      course: (v) => v !== '' || 'Pick a course.',
+    };
+
+    function setError(field, message) {
+      const input = form.elements[field];
+      document.getElementById(`${field}-error`).textContent = message;
+      input.setAttribute('aria-invalid', message ? 'true' : 'false');
+      return !message;
+    }
+
+    function validateField(field) {
+      const outcome = rules[field](form.elements[field].value);
+      return setError(field, outcome === true ? '' : outcome);
+    }
+
+    // Validate on blur; clear the error as soon as the user fixes it.
+    for (const field of Object.keys(rules)) {
+      form.elements[field].addEventListener('blur', () => validateField(field));
+      form.elements[field].addEventListener('input', () => {
+        if (form.elements[field].getAttribute('aria-invalid') === 'true') validateField(field);
+      });
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const results = Object.keys(rules).map(validateField);
+      if (results.includes(false)) {
+        form.querySelector('[aria-invalid="true"]').focus();
+        document.getElementById('summary').textContent = 'Fix the highlighted fields.';
+        return;
+      }
+
+      const data = new FormData(form);
+      document.getElementById('summary').textContent =
+        `Enrolled ${data.get('name')} (${data.get('email')}) in ${data.get('course')}.`;
+      form.reset();
+      for (const field of Object.keys(rules)) setError(field, '');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+// Design tokens. Single source of truth for colour, type, space, breakpoints.
+
+$colour-ink:         #14161a;
+$colour-ink-soft:    #4a515c;
+$colour-surface:     #ffffff;
+$colour-surface-alt: #f4f6f9;
+$colour-accent:      #1f5fdb;
+$colour-accent-ink:  #ffffff;
+$colour-border:      #d9dee6;
+
+$font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+$step-0: 1rem;
+$step-1: 1.25rem;
+$step-2: 1.563rem;
+$step-3: 1.953rem;
+
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 1rem;
+$space-4: 1.5rem;
+$space-5: 2.5rem;
+$space-6: 4rem;
+
+$radius: 10px;
+$measure: 62ch;
+
+$breakpoints: (
+  "sm": 30rem,
+  "md": 48rem,
+  "lg": 64rem,
+);
+
+@mixin emit-tokens {
+  --colour-ink: #{$colour-ink};
+  --colour-ink-soft: #{$colour-ink-soft};
+  --colour-surface: #{$colour-surface};
+  --colour-surface-alt: #{$colour-surface-alt};
+  --colour-accent: #{$colour-accent};
+  --colour-accent-ink: #{$colour-accent-ink};
+  --colour-border: #{$colour-border};
+  --font-body: #{$font-body};
+  --font-mono: #{$font-mono};
+  --step-0: #{$step-0};
+  --step-1: #{$step-1};
+  --step-2: #{$step-2};
+  --step-3: #{$step-3};
+  --space-1: #{$space-1};
+  --space-2: #{$space-2};
+  --space-3: #{$space-3};
+  --space-4: #{$space-4};
+  --space-5: #{$space-5};
+  --space-6: #{$space-6};
+  --radius: #{$radius};
+  --measure: #{$measure};
+}

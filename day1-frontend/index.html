@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Geek Solutions — Course Catalogue</title>
+  <meta name="description" content="Course catalogue landing page built with semantic HTML and a token-driven stylesheet.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <p class="brand">Geek Solutions</p>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#courses" aria-current="page">Courses</a></li>
+        <li><a href="#tracks">Tracks</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Learn the stack, end to end</h1>
+      <p class="lede">
+        Five short tracks that take you from semantic markup to a normalised
+        database, with a runnable example at every step.
+      </p>
+      <p><a class="button" href="#courses">Browse courses</a></p>
+    </section>
+
+    <section id="courses" aria-labelledby="courses-heading">
+      <h2 id="courses-heading">Courses</h2>
+
+      <ul class="card-grid">
+        <li>
+          <article class="card">
+            <h3>Web Fundamentals</h3>
+            <p class="code">WEB101 · 6 credits</p>
+            <p>Structure, semantics, and a design system you can maintain.</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <h3>Data Structures</h3>
+            <p class="code">CS201 · 8 credits</p>
+            <p>Lists, maps, and the real cost of each choice you make.</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <h3>Databases</h3>
+            <p class="code">DB210 · 6 credits</p>
+            <p>Normalisation, joins, and query plans on a working schema.</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section id="tracks" aria-labelledby="tracks-heading">
+      <h2 id="tracks-heading">Tracks</h2>
+      <dl class="track-list">
+        <dt>Frontend</dt>
+        <dd>Semantic HTML, token-driven CSS, and an SCSS partial structure.</dd>
+        <dt>Scripting</dt>
+        <dd>Array methods, DOM events, form validation, small state machines.</dd>
+        <dt>Backend</dt>
+        <dd>Python and Java exercises with explicit boundary tests.</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <h2>Contact</h2>
+    <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+    <p><small>&copy; 2026 Geek Solutions</small></p>
+  </footer>
+</body>
+</html>

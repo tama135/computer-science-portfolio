@@ -1,0 +1,58 @@
+// Entry point. Compile with:
+//   sass day1-frontend/styles.scss day1-frontend/styles.css
+@use "tokens" as t;
+@use "mixins" as m;
+
+:root {
+  @include t.emit-tokens;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: t.$font-body;
+  font-size: t.$step-0;
+  line-height: 1.6;
+  color: t.$colour-ink;
+  background: t.$colour-surface;
+}
+
+h1, h2, h3 { @include m.heading; }
+p { max-width: t.$measure; }
+
+a { color: t.$colour-accent; }
+a:focus-visible,
+button:focus-visible { @include m.focus-ring; }
+
+.site-header {
+  @include m.flex-row;
+  padding: t.$space-3 t.$space-4;
+  border-bottom: 1px solid t.$colour-border;
+}
+
+main {
+  padding: t.$space-5 t.$space-4;
+  display: grid;
+  gap: t.$space-6;
+}
+
+.card-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: t.$space-4;
+  grid-template-columns: 1fr;
+
+  @include m.from(48rem) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid t.$colour-border;
+  border-radius: t.$radius;
+  padding: t.$space-4;
+  background: t.$colour-surface-alt;
+}

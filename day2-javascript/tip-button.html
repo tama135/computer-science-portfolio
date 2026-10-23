@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tip calculator</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 3rem auto; padding: 0 1rem; }
+    fieldset { border: 1px solid #d9dee6; border-radius: 10px; padding: 1rem 1.25rem; }
+    legend { font-weight: 700; }
+    label { display: block; margin: 0.5rem 0 0.25rem; font-weight: 600; }
+    input { font: inherit; padding: 0.4rem 0.5rem; width: 8rem; }
+    .rates { display: flex; gap: 0.5rem; margin-top: 1rem; }
+    button { font: inherit; padding: 0.4rem 0.9rem; border-radius: 8px; border: 1px solid #d9dee6; background: #f4f6f9; cursor: pointer; }
+    button[aria-pressed="true"] { background: #1f5fdb; color: #fff; border-color: #1f5fdb; }
+    output { display: block; margin-top: 1rem; font-size: 1.25rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Tip calculator</h1>
+
+  <form id="tip-form">
+    <fieldset>
+      <legend>Bill</legend>
+
+      <label for="bill">Bill amount</label>
+      <input id="bill" name="bill" type="number" min="0" step="0.01" value="42.00" required>
+
+      <label for="people">Split between</label>
+      <input id="people" name="people" type="number" min="1" step="1" value="1" required>
+
+      <p class="rates" role="group" aria-label="Tip rate">
+        <button type="button" class="rate" data-rate="0.10" aria-pressed="false">10%</button>
+        <button type="button" class="rate" data-rate="0.15" aria-pressed="true">15%</button>
+        <button type="button" class="rate" data-rate="0.20" aria-pressed="false">20%</button>
+      </p>
+    </fieldset>
+  </form>
+
+  <output id="result" aria-live="polite">—</output>
+
+  <script>
+    const form = document.getElementById('tip-form');
+    const result = document.getElementById('result');
+    const rateButtons = [...document.querySelectorAll('.rate')];
+
+    let rate = 0.15;
+
+    function compute() {
+      const bill = Number(form.elements.bill.value);
+      const people = Math.max(1, Number(form.elements.people.value) || 1);
+
+      if (!Number.isFinite(bill) || bill <= 0) {
+        result.textContent = '—';
+        return;
+      }
+
+      const total = bill * (1 + rate);
+      const each = total / people;
+      result.textContent =
+        `Tip $${(bill * rate).toFixed(2)} · Total $${total.toFixed(2)} · ` +
+        `$${each.toFixed(2)} each across ${people}`;
+    }
+
+    // One delegated listener instead of one per button.
+    document.querySelector('.rates').addEventListener('click', (event) => {
+      const button = event.target.closest('.rate');
+      if (!button) return;
+
+      rate = Number(button.dataset.rate);
+      for (const b of rateButtons) {
+        b.setAttribute('aria-pressed', String(b === button));
+      }
+      compute();
+    });
+
+    form.addEventListener('input', compute);
+    compute();
+  </script>
+</body>
+</html>
