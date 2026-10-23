@@ -126,7 +126,11 @@ Needs `node`, `python3`, `javac`/`java`, `sqlite3`. From the repo root:
 
   <footer id="contact" class="site-footer">
     <h2>Contact</h2>
-    <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+    <p><a href="mailto:informatickionlinekursevi@gmbash tools/build-readme.sh > README.md
+bash tools/build-appendix.sh > APPENDIX.md
+git add day1-frontend/index.html README.md APPENDIX.md
+git commit -m "Update sample page contact details"
+git pushail.com">informatickionlinekursevi@gmail.com</a></p>
     <p><small>&copy; 2026 Geek Solutions</small></p>
   </footer>
 </body>
