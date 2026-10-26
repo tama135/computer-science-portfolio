@@ -1,4 +1,4 @@
-# Portfolio — Geek Solutions Deliverables
+# Portfolio — Computer Science deliverables
 
 Five days of coursework: a semantic frontend page, JavaScript DOM and data work,
 Python and Java exercises with boundary tests, a React component set, and a
@@ -55,7 +55,7 @@ Needs `node`, `python3`, `javac`/`java`, `sqlite3`. From the repo root:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Geek Solutions — Course Catalogue</title>
+  <title>Course Catalogue</title>
   <meta name="description" content="Course catalogue landing page built with semantic HTML and a token-driven stylesheet.">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -63,7 +63,7 @@ Needs `node`, `python3`, `javac`/`java`, `sqlite3`. From the repo root:
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <p class="brand">Geek Solutions</p>
+    <p class="brand">Computer Science courses</p>
     <nav class="site-nav" aria-label="Primary">
       <ul>
         <li><a href="#courses" aria-current="page">Courses</a></li>
@@ -126,12 +126,12 @@ Needs `node`, `python3`, `javac`/`java`, `sqlite3`. From the repo root:
 
   <footer id="contact" class="site-footer">
     <h2>Contact</h2>
-    <p><a href="mailto:informatickionlinekursevi@gmbash tools/build-readme.sh > README.md
+    <p><a href="mailto:tamarat135@gmbash tools/build-readme.sh > README.md
 bash tools/build-appendix.sh > APPENDIX.md
 git add day1-frontend/index.html README.md APPENDIX.md
 git commit -m "Update sample page contact details"
-git pushail.com">informatickionlinekursevi@gmail.com</a></p>
-    <p><small>&copy; 2026 Geek Solutions</small></p>
+git pushail.com">tamarat135@gmail.com</a></p>
+    <p><small>&copy; 2026 Computer Science Courses</small></p>
   </footer>
 </body>
 </html>
@@ -292,7 +292,7 @@ ORDER BY cohort_avg DESC;
 
 ## Complete repository
 
-**https://github.com/tama135/geek-solutions-deliverables**
+**https://github.com/tama135/computer-science-portfolio**
 
 Every file is browsable there. [`APPENDIX.md`](APPENDIX.md) lists them all.
 ## Notes
