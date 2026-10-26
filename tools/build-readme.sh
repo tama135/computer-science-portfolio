@@ -9,11 +9,10 @@ REPO_URL="$(git remote get-url origin 2>/dev/null \
 show () { printf '\n**File:** `%s`\n\n```%s\n' "$2" "$1"; cat "$2"; printf '```\n\n'; }
 
 cat <<'HEAD'
-# Portfolio — Geek Solutions Deliverables
+# Computer Science Portfolio
 
-Five days of coursework: a semantic frontend page, JavaScript DOM and data work,
-Python and Java exercises with boundary tests, a React component set, and a
-normalised SQL schema with analytical queries.
+This is a computer science portfolio with practical work in frontend development,
+JavaScript, Python, Java, React, and SQL.
 
 The four examples below are the ones worth reading. The complete inventory is in
 [`APPENDIX.md`](APPENDIX.md), and the pre-publish audit is in
@@ -95,6 +94,7 @@ cat <<'HEAD'
 
 - Filenames are given in full wherever they are referenced.
 - Everything runs from the repo root with relative paths.
-- `README.md` and `APPENDIX.md` are generated. Re-run `./tools/build-readme.sh`
-  and `./tools/build-appendix.sh` after editing any deliverable.
+- `README.md` and `APPENDIX.md` are generated. Rebuild them after edits with:
+  `bash tools/build-readme.sh > README.md`
+  and `bash tools/build-appendix.sh > APPENDIX.md`.
 HEAD

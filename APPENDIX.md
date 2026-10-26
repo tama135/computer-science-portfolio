@@ -1,13 +1,13 @@
 # Appendix — complete file inventory
 
-Every deliverable in the repository. Generated 2026-10-23.
+Every deliverable in the repository. Generated 2026-10-26.
 
 ## `day1-frontend/`
 
 - `day1-frontend/STYLE-GUIDE.md` — 2143 bytes
 - `day1-frontend/_mixins.scss` — 714 bytes
 - `day1-frontend/_tokens.scss` — 1366 bytes
-- `day1-frontend/index.html` — 2973 bytes
+- `day1-frontend/index.html` — 2615 bytes
 - `day1-frontend/styles.css` — 3277 bytes
 - `day1-frontend/styles.scss` — 1076 bytes
 

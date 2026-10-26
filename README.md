@@ -1,8 +1,7 @@
-# Portfolio — Computer Science deliverables
+# Computer Science Portfolio
 
-Five days of coursework: a semantic frontend page, JavaScript DOM and data work,
-Python and Java exercises with boundary tests, a React component set, and a
-normalised SQL schema with analytical queries.
+This is a computer science portfolio with practical work in frontend development,
+JavaScript, Python, Java, React, and SQL.
 
 The four examples below are the ones worth reading. The complete inventory is in
 [`APPENDIX.md`](APPENDIX.md), and the pre-publish audit is in
@@ -55,7 +54,7 @@ Needs `node`, `python3`, `javac`/`java`, `sqlite3`. From the repo root:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Course Catalogue</title>
+  <title>Computer Science Portfolio — Course Catalogue</title>
   <meta name="description" content="Course catalogue landing page built with semantic HTML and a token-driven stylesheet.">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -63,12 +62,11 @@ Needs `node`, `python3`, `javac`/`java`, `sqlite3`. From the repo root:
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <p class="brand">Computer Science courses</p>
+    <p class="brand">Computer Science Portfolio</p>
     <nav class="site-nav" aria-label="Primary">
       <ul>
         <li><a href="#courses" aria-current="page">Courses</a></li>
         <li><a href="#tracks">Tracks</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -124,14 +122,8 @@ Needs `node`, `python3`, `javac`/`java`, `sqlite3`. From the repo root:
     </section>
   </main>
 
-  <footer id="contact" class="site-footer">
-    <h2>Contact</h2>
-    <p><a href="mailto:tamarat135@gmbash tools/build-readme.sh > README.md
-bash tools/build-appendix.sh > APPENDIX.md
-git add day1-frontend/index.html README.md APPENDIX.md
-git commit -m "Update sample page contact details"
-git pushail.com">tamarat135@gmail.com</a></p>
-    <p><small>&copy; 2026 Computer Science Courses</small></p>
+  <footer class="site-footer">
+    <p><small>Computer Science Portfolio</small></p>
   </footer>
 </body>
 </html>
@@ -299,5 +291,6 @@ Every file is browsable there. [`APPENDIX.md`](APPENDIX.md) lists them all.
 
 - Filenames are given in full wherever they are referenced.
 - Everything runs from the repo root with relative paths.
-- `README.md` and `APPENDIX.md` are generated. Re-run `./tools/build-readme.sh`
-  and `./tools/build-appendix.sh` after editing any deliverable.
+- `README.md` and `APPENDIX.md` are generated. Rebuild them after edits with:
+  `bash tools/build-readme.sh > README.md`
+  and `bash tools/build-appendix.sh > APPENDIX.md`.
